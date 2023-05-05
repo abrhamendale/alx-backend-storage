@@ -1,4 +1,4 @@
---Divides two numbers
+-- Divides two numbers
 
 DELIMITER $$
 CREATE FUNCTION SafeDiv (a INT, b INT)
@@ -9,7 +9,7 @@ IF (b = 0)
 	THEN
 	RETURN 0;
 ELSE
-	RETURN a / b;
+	RETURN (CAST(a AS DECIMAL(30, 20)) / b AS output FROM dual);
 	END IF;
 END $$
 DELIMITER ;

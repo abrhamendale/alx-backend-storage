@@ -1,12 +1,12 @@
 -- Creates a stored procedure AddBonus
 
 DELIMITER $$
-CREATE PROCEDURE ComputeAverageScoreForUser(IN u_id INT)
+CREATE PROCEDURE ComputeAverageScoreForUser(IN user_id INT)
 BEGIN
-	SET @a = u_id;
-	SELECT @b := AVG(score) FROM corrections WHERE user_id = u_id;
+	DECLARE a INT DEFAULT user_id;
+	SELECT @b := AVG(score) FROM corrections WHERE corrections.user_id = a;
 	UPDATE users
 	SET average_score = @b
-	WHERE id = u_id;
+	WHERE id = user_id;
 END $$
 DELIMITER $$
