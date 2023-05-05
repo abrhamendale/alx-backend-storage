@@ -1,5 +1,4 @@
---Lists band country in order of fans
-
+-- Lists band country in order of fans
 SELECT origin, SUM(fans) AS nb_fans
 	FROM metal_bands
 	GROUP BY origin
