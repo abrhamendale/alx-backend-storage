@@ -1,5 +1,5 @@
 -- Initial
-DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS users;
 
 CREATE TABLE IF NOT EXISTS users (
     id int not null AUTO_INCREMENT,

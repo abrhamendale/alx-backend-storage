@@ -1,4 +1,4 @@
---Resets valid_email attribute.
+-- Resets valid_email attribute.
 
 DELIMITER $$
 CREATE TRIGGER emailtrig
