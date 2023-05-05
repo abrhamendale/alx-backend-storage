@@ -1,4 +1,4 @@
---Mysql Trigger
+-- Mysql Trigger
 
 DELIMITER $$
 CREATE TRIGGER qudate
