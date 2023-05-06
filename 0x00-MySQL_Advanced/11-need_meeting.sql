@@ -1,6 +1,6 @@
---Creates a view
+-- Creates a view
 
 CREATE VIEW need_meeting AS
 SELECT name
 FROM students
-WHERE score < 80, last_meeting  = NULL OR DATEDIFF(CURDATE() - last_meeting) / 30 > 1;
+WHERE score < 80 AND (last_meeting IS NULL OR (last_meeting NOT BETWEEN ADDDATE(CURDATE(), INTERVAL -1 MONTH) AND CURDATE()));
