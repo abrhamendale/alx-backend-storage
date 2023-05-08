@@ -1,5 +1,4 @@
 // Adds to a collection
-use $1
-1.school.insertOne({
+school.insertOne({
 "name": "Holberton school"
 })
