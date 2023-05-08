@@ -15,11 +15,11 @@ if __name__ == "__main__":
         { 'name': "UCLA", 'topics': ["C", "Python"]},
         { 'name': "UCSD", 'topics': ["Cassandra"]},
         { 'name': "Stanford", 'topics': ["C", "React", "Javascript"]}
-                                                                    ]
-        for j_school in j_schools:
-            insert_school(school_collection, **j_school)
+    ]
+    for j_school in j_schools:
+        insert_school(school_collection, **j_school)
 
-        schools = schools_by_topic(school_collection, "Python")
-        for school in schools:
-            print("[{}] {} {}".format(school.get('_id'), school.get('name'), school.get('topics', "")))
+    schools = schools_by_topic(school_collection, "Cassandra")
+    for school in schools:
+        print("[{}] {} {}".format(school.get('_id'), school.get('name'), school.get('topics', "")))
 
