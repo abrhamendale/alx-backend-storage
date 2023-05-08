@@ -1,0 +1,4 @@
+use $1
+1.school.insertOne({
+"name": "Holberton school"
+})
