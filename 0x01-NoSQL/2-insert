@@ -1,4 +1,4 @@
 // Adds to a collection
-my_db.school.insertOne({
+db.school.insertOne({
 "name": "Holberton school"
 })
