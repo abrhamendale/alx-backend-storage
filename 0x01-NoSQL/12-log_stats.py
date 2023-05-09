@@ -14,12 +14,13 @@ def log_parser():
     n = client.logs.nginx
     print(n.count_documents({}), "logs")
     print("Methods:")
-    print("   ", "method GET:", n.count_documents({"method" : "GET"}))
-    print("   ", "method POST:", n.count_documents({"method" : "POST"}))
-    print("   ", "method PUT:", n.count_documents({"method" : "PUT"}))
-    print("   ", "method PATCH:", n.count_documents({"method" : "PATCH"}))
-    print("   ", "method DELETE:", n.count_documents({"method" : "DELETE"}))
-    print(n.count_documents({ '$and': [{"method" : "GET"}, {"path" : "/status"}]}),"status check")
+    print("\t", "method GET:", n.count_documents({"method": "GET"}))
+    print("\t", "method POST:", n.count_documents({"method": "POST"}))
+    print("\t", "method PUT:", n.count_documents({"method": "PUT"}))
+    print("\t", "method PATCH:", n.count_documents({"method": "PATCH"}))
+    print("\t", "method DELETE:", n.count_documents({"method": "DELETE"}))
+    print(n.count_documents({'$and': [{"method": "GET"},
+                            {"path": "/status"}]}), "status check")
 
 
 if __name__ == "__main__":
