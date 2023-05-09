@@ -12,7 +12,7 @@ def log_parser():
     """Parses Nginx log."""
     client = MongoClient('mongodb://127.0.0.1:27017')
     n = client.logs.nginx
-    print(n.count_documents({}))
+    print(n.count_documents({}), " logs")
     print("Methods:")
     print("\t", "method GET: ", n.count_documents({"method" : "GET"}))
     print("\t", "method GET: ", n.count_documents({"method" : "POST"}))
