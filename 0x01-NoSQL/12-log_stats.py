@@ -19,7 +19,7 @@ def log_parser():
     print("\t", "method GET: ", n.count_documents({"method" : "PUT"}))
     print("\t", "method GET: ", n.count_documents({"method" : "PATCH"}))
     print("\t", "method GET: ", n.count_documents({"method" : "DELETE"}))
-    print("\t", n.count_documents({"method" : "GET"}, {"path" : "/status"})," status check")
+    print("\t", n.count_documents({ '$and': [{"method" : "GET"}, {"path" : "/status"}]})," status check")
 
 
 if __name__ == "__main__":
