@@ -12,10 +12,10 @@ import uuid
 class Cache:
     """Redis cache class."""
     def __init__(self):
-        self._redis = redis.Redis()
-    
+        self.__redis = redis.Redis()
+
 
     def store(self, data: Union[str, bytes, int, float]):
         r = uuid.uuid4()
-        self._redis.set(str(r), data)
+        self.__redis.set(str(r), data)
         return (str(r))
