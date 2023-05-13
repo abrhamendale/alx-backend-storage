@@ -15,8 +15,12 @@ def count_calls(method):
         if method.__name__ == "store":
             nm = cache.store.__qualname__
             r.incr(nm)
-            store(data)
-    return inner
+        return store(data)
+
+def fn1(method):
+    def fn2(key: str, fn = None):
+
+
 
 class Cache:
     """Redis cache class."""
@@ -30,35 +34,21 @@ class Cache:
         self._redis.set(str(r), data)
         return (str(r))
 
-
-    def get_str(method):
-        def inner(key: str, fn=None):
-            #print(type(key))
-            if type(key) == "str" and fn is None:
-                return method(key, lambda d: d.decode("utf-8"))
-            else:
-                return method(key, fn)
-        return inner
-
-
-    def get_int(method):
-        def inner(key: str, fn=None):
-            if type(key) == "int" and fn is None:
-                return method(key, lambda d: d.decode("utf-32"))
-            else:
-                return method(key, fn)
-        return inner
-
-    @get_str
-    @get_int
     def get(self, key: str, fn=None):
-        print("!")
         if key is not None:
-            print("!!",fn)
             if fn is not None:
-                print("!!!")
-                print(1)
                 v = self._redis.get(key)
                 return (fn(v))
+            else:
+                if type(key) == "str":
+                    return (get_str(self._redis.get(key)))
+                if type(key) == "int":
+                    return (get_int(self._redis.get(key)))
         else:
             return (None)
+
+    def get_str(v):
+        v.decode(str)
+
+    def get_int(v):
+        v.decode(int)
