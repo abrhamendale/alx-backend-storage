@@ -10,7 +10,7 @@ BEGIN
 		RETURN 0;
 	ELSE
 		SET @c DECIMAL(32, 24) = (CAST(a AS DEC(32, 24)) / (b + 0));
-		RETURN c;
+		RETURN a / b;
 	END IF;
 END $$
 DELIMITER $$
